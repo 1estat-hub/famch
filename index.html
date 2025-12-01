@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Семейный чат 💬</title>
+
+  <!-- стили -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDK v8 -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+
+<!-- Форма входа -->
+<div id="login-wrapper">
+  <div id="login">
+    <h2>Семейный чат 💬</h2>
+
+    <input id="email" type="email" placeholder="Email">
+    <br>
+    <input id="password" type="password" placeholder="Пароль">
+
+    <div id="loginBtnfull">
+      <button id="loginBtn">Войти</button>
+      <button id="registerBtn">Регистрация</button>
+    </div>
+
+    <p id="loginError"></p>
+  </div>
+</div>
+
+
+
+<!-- Меню (сэндвич) -->
+<div id="menuBar">
+  <div id="menuButton">≡</div>
+  <div id="backButton">← Назад</div>
+  <div id="roomTitle">Список чатов</div>
+
+  <div id="menuContent">
+    <h3>Контакты</h3>
+    <ul id="contactList"></ul>
+    <hr>
+	<button id="clearHistoryBtn">🧹 Очистить историю</button>
+    <input id="avatarInput" type="file" accept="image/*">
+    <button id="logoutBtn">Выход</button>
+  </div>
+</div>
+
+<!-- ==================== СПИСОК ЧАТОВ ==================== -->
+<div id="chatListContainer">
+  <h2>Ваши чаты</h2>
+  <ul id="chatList"></ul>
+</div>
+<!-- Контейнер чата -->
+<div id="chatContainer">
+  <div id="chat"></div>
+
+  <div id="inputBox">
+    <button id="pickImgBtn" title="Прикрепить">📷</button>
+    <textarea id="message" placeholder="Введите сообщение" rows="1"></textarea>
+    <button id="sendBtn" title="Отправить">➤</button>
+    <input type="file" id="fileInput" accept="image/*" style="display:none;">
+  </div>
+
+  <label for="selfDestructCheck">
+    <input type="checkbox" id="selfDestructCheck"> Однораз
+  </label>
+
+  <div id="previewContainer"></div>
+</div>
+
+<!-- Лайтбокс для увеличения картинок -->
+<div id="lightboxOverlay"><img src="" alt="preview"></div>
+
+<script src="firebase-config.js"></script>
+<script defer src="script.js"></script>
+</body>
+</html>
